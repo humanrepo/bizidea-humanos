@@ -1,0 +1,62 @@
+{
+  "name": "bizidea-backend",
+  "version": "1.0.0",
+  "description": "Backend pour la plateforme SaaS Bizidea par HumanOS",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "test": "echo \"Erreur: aucun test spécifié\" && exit 1",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "lint:fix": "eslint . --ext .js,.jsx,.ts,.tsx --fix",
+    "clean": "powershell -Command \"Remove-Item -Recurse -Force node_modules, package-lock.json -ErrorAction SilentlyContinue; npm install\"",
+    "clean:bash": "rm -rf node_modules package-lock.json && npm install",
+    "dev:windows": "nodemon src/server.js",
+    "ports:check": "netstat -an | findstr :5000"
+  },
+  "keywords": [
+    "bizidea",
+    "saas",
+    "express",
+    "postgresql",
+    "mongodb",
+    "api",
+    "backend",
+    "francais",
+    "français",
+    "powershell",
+    "windows"
+  ],
+  "author": "HumanOS",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5",
+    "pg": "^8.11.3",
+    "mongoose": "^7.6.3",
+    "dotenv": "^16.3.1",
+    "jsonwebtoken": "^9.0.2",
+    "bcryptjs": "^2.4.3",
+    "helmet": "^7.1.0",
+    "express-rate-limit": "^7.1.5",
+    "compression": "^1.7.4",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1",
+    "eslint": "^8.54.0",
+    "prettier": "^3.1.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/HumanOS/bizidea-backend.git"
+  },
+  "bugs": {
+    "url": "https://github.com/HumanOS/bizidea-backend/issues"
+  },
+  "homepage": "https://bizidea.com"
+}
