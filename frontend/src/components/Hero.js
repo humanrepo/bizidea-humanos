@@ -1,20 +1,8 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { slideIn, staggerContainer, whileHover, whileTap } from '../utils/animations';
 
 const Hero = () => {
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  };
-
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
 
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 py-24 sm:py-32">
@@ -26,7 +14,7 @@ const Hero = () => {
           className="text-center"
         >
           <motion.h1
-            variants={fadeInUp}
+            variants={slideIn.fromBottom}
             className="text-4xl sm:text-6xl font-bold text-gray-900 dark:text-white mb-6"
           >
             Bizidea by HumanOS: 
@@ -36,7 +24,7 @@ const Hero = () => {
           </motion.h1>
 
           <motion.p
-            variants={fadeInUp}
+            variants={slideIn.fromBottom}
             className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300 mb-8 max-w-3xl mx-auto"
           >
             Transformez vos idées en entreprises prospères avec notre plateforme tout-en-un. 
@@ -44,12 +32,12 @@ const Hero = () => {
           </motion.p>
 
           <motion.div
-            variants={fadeInUp}
+            variants={slideIn.fromBottom}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
             <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={whileHover}
+              whileTap={whileTap}
               href="/signup"
               className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors duration-200 shadow-lg hover:shadow-xl"
             >
@@ -57,8 +45,8 @@ const Hero = () => {
             </motion.a>
             
             <motion.a
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
+              whileHover={whileHover}
+              whileTap={whileTap}
               href="/demo"
               className="border-2 border-blue-600 text-blue-600 dark:text-blue-400 hover:bg-blue-600 hover:text-white dark:hover:bg-blue-600 px-8 py-4 rounded-lg text-lg font-semibold transition-all duration-200"
             >
@@ -69,7 +57,7 @@ const Hero = () => {
 
         {/* Illustration placeholder */}
         <motion.div
-          variants={fadeInUp}
+          variants={slideIn.fromBottom}
           className="mt-16 max-w-4xl mx-auto"
         >
           <div className="bg-white dark:bg-gray-800 rounded-lg shadow-2xl p-8">

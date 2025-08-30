@@ -1,26 +1,13 @@
-import React from 'react';
+qaimport React from 'react';
 import { motion } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
+import { slideIn, staggerContainer } from '../utils/animations';
 
 const Features = () => {
   const [ref, inView] = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
-
-  const fadeInUp = {
-    initial: { opacity: 0, y: 60 },
-    animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
-  };
-
-  const staggerContainer = {
-    animate: {
-      transition: {
-        staggerChildren: 0.1
-      }
-    }
-  };
 
   const features = [
     {
@@ -66,13 +53,13 @@ const Features = () => {
           className="text-center mb-16"
         >
           <motion.h2
-            variants={fadeInUp}
+            variants={slideIn.fromBottom}
             className="text-3xl sm:text-4xl font-bold text-gray-900 dark:text-white mb-4"
           >
             Fonctionnalités puissantes
           </motion.h2>
           <motion.p
-            variants={fadeInUp}
+            variants={slideIn.fromBottom}
             className="text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto"
           >
             Découvrez toutes les fonctionnalités conçues pour booster votre startup
