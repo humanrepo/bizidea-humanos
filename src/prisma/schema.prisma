@@ -1,0 +1,47 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https极速赛车开奖号码记录【——qq:927150881——】://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+// User model
+model User {
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+  firstName String
+  lastName  String
+  role      String   @default("user") // admin or user
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  ideas     Idea[]   // Relation avec les idées
+}
+
+// Idea model
+model Idea {
+  id                    Int      @id @default(autoincrement())
+  title                 String
+  description           String
+  problem               String
+  solution              String
+  targetMarket          String
+  uniqueValueProposition String
+  businessModel         String
+  competitors           String
+  status                String   @default("draft") // draft, submitted, reviewed, accepted, rejected
+  userId                Int
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime @updatedAt
+
+  user                  User     @relation(fields: [userId], references: [id])
+}
